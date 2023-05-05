@@ -1,0 +1,41 @@
+{
+  "name": "sst-skelleton",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "sst dev",
+    "build": "sst build",
+    "deploy": "sst deploy --stage prod",
+    "remove": "sst remove",
+    "console": "sst console",
+    "typecheck": "tsc --noEmit",
+    "test": "sst bind vitest run",
+    "migration:create": "cd packages/core/src/db/migrations && typeorm-ts-node-esm migration:create",
+    "migration:run": "typeorm-ts-node-esm migration:run -d ./ormconfig.ts",
+    "migration:revert": "typeorm-ts-node-esm migration:revert -d ./ormconfig.ts"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.321.1",
+    "@aws-sdk/client-dynamodb": "^3.321.1",
+    "@aws-sdk/lib-dynamodb": "^3.321.1",
+    "@tsconfig/node16": "^1.0.3",
+    "@types/node": "^18.16.1",
+    "@types/uuid": "^9.0.1",
+    "aws-cdk-lib": "2.72.1",
+    "constructs": "10.1.156",
+    "sst": "^2.7.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "typeorm": "^0.3.15",
+    "joi": "^17.9.2",
+    "mysql2": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
+    "uuid": "^9.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
